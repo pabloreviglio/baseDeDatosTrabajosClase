@@ -1,3 +1,7 @@
+-- Línea de código para ejecutar cada vez que se agrega una nueva BD:
+SET SQL_SAFE_UPDATES = 0; -- Esto permitirá realizar múltiples actualizaciones y eliminaciones sobre las tablas.
+
+
 -- 1. Listar las canciones que poseen la letra “z” en su título.
 select * from cancion where titulo like '%z%';
 -- 2. Listar las canciones que poseen como segundo carácter la letra “a” y como último, la letra “s”.
@@ -25,6 +29,6 @@ values (20, 'nuevousuariodespotify@gmail.com', 'Elmer Gomez', '1991-11-15', 'M',
 -- 9. Eliminar todas las canciones de género “pop”.
 delete from cancion where idCancion in (6,7,8,9,11,12,13,14,15,18,19,20,21,22,23,24,25,79,85,130);
 -- 10. Editar todos los artistas que no tengan una imagen cargada y cargarles el texto “Imagen faltante” en la columna de imagen.
-update artista  set imagen = 'Imagen faltante' where imagen = 'null';
+update artista  set imagen = 'Imagen faltante' where imagen is null;
 
 
